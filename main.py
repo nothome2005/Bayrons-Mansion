@@ -1,19 +1,18 @@
 from flask import Flask, request
+import pymongo
 
+client = pymongo.MongoClient("mongodb+srv://Fit4a:S8Lqaagemi98rTt@cluster0.dzzqz.mongodb.net/Tele_db?retryWrites=true&w=majority")
+db = client.Tele_db
+coll = db.users
 # create the Flask app
 app = Flask(__name__)
 
-@app.route('/query-example')
-def query_example():
-    return 'Query String Example'
 
-@app.route('/form-example')
-def form_example():
-    return 'Form Data Example'
-
-@app.route('/json-example')
+@app.route('/user')
 def json_example():
-    return 'JSON Object Example'
+    nick = request.args.get('nickname')
+    return coll.find({'_id': nick})
+    
 
 if __name__ == '__main__':
     # run app in debug mode on port 5000
