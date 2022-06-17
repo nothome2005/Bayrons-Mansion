@@ -6,8 +6,8 @@ app = Flask(__name__)
 
 @app.route('/user')
 def json_example():
-    nick = request.args.get('nickname')
-    return coll.find({'_id': nick})
+    language = request.args.get('nickname')
+    return '''<h1>The language value is: {}</h1>'''.format(language)
     
 
 if __name__ == '__main__':
