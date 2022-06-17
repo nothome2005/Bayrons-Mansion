@@ -1,9 +1,5 @@
 from flask import Flask, request
-import pymongo
 
-client = pymongo.MongoClient("mongodb+srv://Fit4a:S8Lqaagemi98rTt@cluster0.dzzqz.mongodb.net/Tele_db?retryWrites=true&w=majority")
-db = client.Tele_db
-coll = db.users
 # create the Flask app
 app = Flask(__name__)
 
