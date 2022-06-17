@@ -12,9 +12,12 @@ app = Flask(__name__)
 @app.route('/user')
 def json_example():
     nick = request.args.get('nickname')
-    if nick in coll.find_one({'_id': nick}):
-        print(f'Element {nick} already in list')
-    else:
+    for value in coll.find({'_id': nick}):
+        pass
+    try:
+        type(value)
+        return '1'
+    except UnboundLocalError:
         return '0'
     
 
