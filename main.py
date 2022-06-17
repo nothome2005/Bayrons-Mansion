@@ -11,8 +11,11 @@ app = Flask(__name__)
 
 @app.route('/user')
 def json_example():
-    language = request.args.get('nickname')
-    return '''<h1>The language value is: {}</h1>'''.format(language)
+    nick = request.args.get('nickname')
+    if nick in coll.find_one({'_id': nick}):
+        print(f'Element {nick} already in list')
+    else:
+        return '0'
     
 
 if __name__ == '__main__':
