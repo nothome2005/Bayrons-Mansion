@@ -48,7 +48,18 @@ def example():
         coll.update_one({'_id': nick}, {'$set': {achiv: 1}})
         return '1'
     except:
-        return '0'    
+        return '0'  
+    
+@app.route('/get_values')
+def example():
+    nick = request.args.get('nickname')
+    for value in coll.find({'_id': nick}):
+        pass
+    try:
+        type(value)
+        return coll.find({'_id': nick})
+    except:
+        return '0' 
 
 if __name__ == '__main__':
     # run app in debug mode on port 5000
