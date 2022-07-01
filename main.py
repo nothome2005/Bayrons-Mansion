@@ -51,7 +51,7 @@ def example():
         return '0'  
     
 @app.route('/get_values')
-def example():
+def example_two():
     nick = request.args.get('nickname')
     for value in coll.find({'_id': nick}):
         pass
