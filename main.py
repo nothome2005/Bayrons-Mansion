@@ -38,7 +38,7 @@ def json_example():
         return '0'
 
 @app.route('/achivement')
-def json_example():
+def example():
     nick = request.args.get('nickname')
     achiv = request.args.get('achivement')
     for value in coll.find({'_id': nick}):
