@@ -57,7 +57,7 @@ def example_two():
         pass
     try:
         type(value)
-        return coll.find({'_id': nick})
+        return str(coll.find({'_id': nick}))
     except:
         return '0' 
 
