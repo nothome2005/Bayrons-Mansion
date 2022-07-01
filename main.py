@@ -36,7 +36,19 @@ def json_example():
         return '1'
     except UnboundLocalError:
         return '0'
-    
+
+@app.route('/achivement')
+def json_example():
+    nick = request.args.get('nickname')
+    achiv = request.args.get('achivement')
+    for value in coll.find({'_id': nick}):
+        pass
+    try:
+        type(value)
+        prop_doc.update_one({'_id': nick}, {'$set': {achiv: 1}})
+        return '1'
+    except UnboundLocalError:
+        return '0'    
 
 if __name__ == '__main__':
     # run app in debug mode on port 5000
