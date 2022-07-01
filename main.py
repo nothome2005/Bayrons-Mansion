@@ -45,7 +45,7 @@ def example():
         pass
     try:
         type(value)
-        prop_doc.update_one({'_id': nick}, {'$set': {achiv: 1}})
+        coll.update_one({'_id': nick}, {'$set': {achiv: 1}})
         return '1'
     except UnboundLocalError:
         return '0'    
