@@ -47,7 +47,7 @@ def example():
         type(value)
         coll.update_one({'_id': nick}, {'$set': {achiv: 1}})
         return '1'
-    except UnboundLocalError:
+    except:
         return '0'    
 
 if __name__ == '__main__':
